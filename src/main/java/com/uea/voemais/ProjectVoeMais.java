@@ -1,11 +1,11 @@
 package com.uea.voemais;
-import com.uea.voemais.admin.view.MenuInicialFrame;
+import com.uea.voemais.admin.view.InitialMenuAdminFrame;
 
 
 public class ProjectVoeMais {
 
     public static void main(String[] args) {
-        MenuInicialFrame menu = new MenuInicialFrame();
+        InitialMenuAdminFrame menu = new InitialMenuAdminFrame();
         
         menu.pack();
         menu.show();
