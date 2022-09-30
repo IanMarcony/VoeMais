@@ -6,7 +6,9 @@ public class Flight {
     private int availableTotal;
     private int spotsNumber;
     private String price;
-
+    private Airplane airplane;
+    private Destination destination;
+    
     public Flight() {
     }
     
@@ -60,6 +62,12 @@ public class Flight {
         this.price = price;
     }
 
-  
+    public String show(){
+        
+        return "Partida "+this.departureHour +"Matricula do avião" + this.airplane.getName() + 
+     "\n" +"Horário de Saída "+ this.departureHour + "Horário de Chegada "+this.arrivalHour+"Paradas: " + 
+        "\n"+this.spotsNumber;
+        
+    }
     
 }

@@ -8,6 +8,8 @@ package com.uea.voemais.client.view;
  *
  * @author abatu
  */
+
+import javax.swing.JTextField;
 public class ClientDataFrame extends javax.swing.JFrame {
 
     /**
@@ -30,6 +32,8 @@ public class ClientDataFrame extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nomeDoCliente = new javax.swing.JTextField();
@@ -47,9 +51,9 @@ public class ClientDataFrame extends javax.swing.JFrame {
         dataDePartida = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         quantidadeDePassageiros = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        ConcluirButton = new javax.swing.JButton();
+        somenteIda = new javax.swing.JRadioButton();
+        idaEVolta = new javax.swing.JRadioButton();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -74,11 +78,11 @@ public class ClientDataFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Idade:");
 
-        jLabel4.setText("Aeroporto de chegada:");
+        jLabel4.setText("Aeroporto de chegada (destino):");
 
         jLabel5.setText("Aeroporto de partida:");
 
-        jLabel6.setText("Data de chagada:");
+        jLabel6.setText("Data de chagada (volta):");
 
         dataDeChegada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,21 +100,23 @@ public class ClientDataFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Concluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ConcluirButton.setText("Concluir");
+        ConcluirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ConcluirButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Somente ida");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(somenteIda);
+        somenteIda.setText("Somente ida");
+        somenteIda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                somenteIdaActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Ida e volta");
+        buttonGroup1.add(idaEVolta);
+        idaEVolta.setText("Ida e volta");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,25 +135,27 @@ public class ClientDataFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(quantidadeDePassageiros, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton1))
+                    .addComponent(ConcluirButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(somenteIda, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idaEVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(aeroportoDeChegada, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(aeroportoDePartida)
                             .addComponent(dataDeChegada)
-                            .addComponent(dataDePartida))
-                        .addGap(42, 42, 42))))
+                            .addComponent(dataDePartida)
+                            .addComponent(jLabel6))
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,9 +194,9 @@ public class ClientDataFrame extends javax.swing.JFrame {
                     .addComponent(dataDePartida, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(ConcluirButton)
+                    .addComponent(somenteIda)
+                    .addComponent(idaEVolta))
                 .addGap(22, 22, 22))
         );
 
@@ -222,14 +230,16 @@ public class ClientDataFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantidadeDePassageirosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void ConcluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConcluirButtonActionPerformed
+        MostrarVoosFrame mostrar = new MostrarVoosFrame();
+        mostrar.pack();
+        mostrar.show();
+    }//GEN-LAST:event_ConcluirButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
+    private void somenteIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somenteIdaActionPerformed
+       dataDeChegada.setVisible(false);
+    }//GEN-LAST:event_somenteIdaActionPerformed
+   
     /**
      * @param args the command line arguments
      */
@@ -265,17 +275,20 @@ public class ClientDataFrame extends javax.swing.JFrame {
             }
         });
     }
-
+/*
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConcluirButton;
     private javax.swing.JTextField IdadeDoCliente;
     private javax.swing.JTextField aeroportoDeChegada;
     private javax.swing.JTextField aeroportoDePartida;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JTextField dataDeChegada;
     private javax.swing.JTextField dataDePartida;
     private javax.swing.JComboBox<String> generoDoCliente;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton idaEVolta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -286,12 +299,38 @@ public class ClientDataFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nomeDoCliente;
     private javax.swing.JTextField quantidadeDePassageiros;
+    private javax.swing.JRadioButton somenteIda;
     // End of variables declaration//GEN-END:variables
+    */
     
+    private javax.swing.JButton ConcluirButton;
+    private javax.swing.JTextField IdadeDoCliente;
+    private javax.swing.JTextField aeroportoDeChegada;
+    private javax.swing.JTextField aeroportoDePartida;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private JTextField dataDeChegada;
+    private javax.swing.JTextField dataDePartida;
+    private javax.swing.JComboBox<String> generoDoCliente;
+    private javax.swing.JRadioButton idaEVolta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField nomeDoCliente;
+    private javax.swing.JTextField quantidadeDePassageiros;
+    private javax.swing.JRadioButton somenteIda;
 
 }
