@@ -1,14 +1,13 @@
 package com.uea.voemais.admin.model;
 
-import com.uea.voemais.shared.model.User;
+import com.uea.voemais.shared.user.model.User;
+import java.io.Serializable;
 
-public class Employee extends User{
+public class Employee extends User implements Serializable {
 
-    public Employee() {
-    }
+  public Employee() {}
 
-    public Employee(String name, String password, String email) {
-        super(name, password, email);
-    }
-  
+  public Employee(String name, String password, String email) {
+    super(name, password, email);
+  }
 }

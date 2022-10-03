@@ -1,40 +1,58 @@
 package com.uea.voemais.client.model;
 
-import com.uea.voemais.shared.model.User;
+import com.uea.voemais.shared.ticketflight.model.TicketFlight;
+import com.uea.voemais.shared.user.model.User;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.List;
 
-public class Client extends User{
-    String identityNumber;
-    String gender;
+public class Client extends User implements Serializable {
 
-    public Client() {
-    }
-    
-    public Client(String identityNumber, String gender) {
-        this.identityNumber = identityNumber;
-        this.gender = gender;
-    }
+  private String identityNumber;
+  private String gender;
+  private List<TicketFlight> ticketFlights;
 
-    public Client(String identityNumber, String gender, String name, String password, String email) {
-        super(name, password, email);
-        this.identityNumber = identityNumber;
-        this.gender = gender;
-    }
+  public Client() {}
 
-    public String getIdentityNumber() {
-        return identityNumber;
-    }
+  public Client(String identityNumber, String gender) {
+    this.identityNumber = identityNumber;
+    this.gender = gender;
+  }
 
-    public void setIdentityNumber(String identityNumber) {
-        this.identityNumber = identityNumber;
-    }
+  public Client(
+    String identityNumber,
+    String gender,
+    String name,
+    String password,
+    String email
+  ) {
+    super(name, password, email);
+    this.identityNumber = identityNumber;
+    this.gender = gender;
+  }
 
-    public String getGender() {
-        return gender;
-    }
+  public String getIdentityNumber() {
+    return identityNumber;
+  }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    
-    
+  public void setIdentityNumber(String identityNumber) {
+    this.identityNumber = identityNumber;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public List<TicketFlight> getTicketFlights() {
+    return ticketFlights;
+  }
+
+  public void setTicketFlights(List<TicketFlight> ticketFlights) {
+    this.ticketFlights = ticketFlights;
+  }
 }
