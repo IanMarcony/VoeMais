@@ -8,7 +8,8 @@ import java.util.List;
 
 public class TicketFlight implements Serializable {
 
-  private String price;
+  private String id;
+  private float price;
   private Client client;
   private List<Passenger> passengers;
   private List<Flight> flights;
@@ -16,22 +17,24 @@ public class TicketFlight implements Serializable {
   public TicketFlight() {}
 
   public TicketFlight(
-    String price,
+    String id,
+    float price,
     Client client,
     List<Passenger> passengers,
     List<Flight> flights
   ) {
+    this.id = id;
     this.price = price;
     this.client = client;
     this.passengers = passengers;
     this.flights = flights;
   }
 
-  public String getPrice() {
+  public float getPrice() {
     return price;
   }
 
-  public void setPrice(String price) {
+  public void setPrice(float price) {
     this.price = price;
   }
 
@@ -57,5 +60,18 @@ public class TicketFlight implements Serializable {
 
   public void setClient(Client client) {
     this.client = client;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  @Override
+  public String toString() {
+    return "TicketFlight [id=" + id + ", price=" + price + "]";
   }
 }

@@ -7,12 +7,11 @@ import java.util.Date;
 
 public class Flight implements Serializable {
 
-  private long id;
+  private String id;
   private Date departureHour;
   private Date arrivalHour;
-  private int availableTotal;
   private int spotsNumber;
-  private String price;
+  private float price;
   private Airplane airplane;
   private Destination destination;
 
@@ -21,15 +20,13 @@ public class Flight implements Serializable {
   public Flight(
     Date departureHour,
     Date arrivalHour,
-    int availableTotal,
     int spotsNumber,
-    String price,
+    float price,
     Airplane airplane,
     Destination destination
   ) {
     this.departureHour = departureHour;
     this.arrivalHour = arrivalHour;
-    this.availableTotal = availableTotal;
     this.spotsNumber = spotsNumber;
     this.price = price;
     this.airplane = airplane;
@@ -52,14 +49,6 @@ public class Flight implements Serializable {
     this.arrivalHour = arrivalHour;
   }
 
-  public int getAvailableTotal() {
-    return availableTotal;
-  }
-
-  public void setAvailableTotal(int availableTotal) {
-    this.availableTotal = availableTotal;
-  }
-
   public int getSpotsNumber() {
     return spotsNumber;
   }
@@ -68,11 +57,11 @@ public class Flight implements Serializable {
     this.spotsNumber = spotsNumber;
   }
 
-  public String getPrice() {
+  public float getPrice() {
     return price;
   }
 
-  public void setPrice(String price) {
+  public void setPrice(float price) {
     this.price = price;
   }
 
@@ -90,5 +79,13 @@ public class Flight implements Serializable {
 
   public void setDestination(Destination destination) {
     this.destination = destination;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 }

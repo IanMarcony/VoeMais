@@ -8,14 +8,16 @@ import com.uea.voemais.shared.destination.controller.DestinationController;
 import com.uea.voemais.shared.destination.model.Destination;
 import com.uea.voemais.shared.flight.controller.FlightController;
 import com.uea.voemais.shared.flight.model.Flight;
+import com.uea.voemais.shared.utils.Constants;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class EmployeeController {
 
-  public static void createDestination(
+  public static Destination createDestination(
     String startAirport,
     String finishAirport,
     String startFlight,
@@ -33,9 +35,11 @@ public class EmployeeController {
     destinations.add(destination);
 
     SerializableManager.saveObject(Destination.class.getName(), destinations);
+
+    return destination;
   }
 
-  public static void createAirplane(
+  public static Airplane createAirplane(
     String companyName,
     String name,
     int capacitySeat
@@ -46,36 +50,38 @@ public class EmployeeController {
     airplanes.add(airplane);
 
     SerializableManager.saveObject(Airplane.class.getName(), airplanes);
+    return airplane;
   }
 
-  public static void createFlights(
+  public static Flight createFlights(
     Date departureHour,
     Date arrivalHour,
-    int availableTotal,
     int spotsNumber,
-    String price,
+    float price,
     Airplane airplane,
     Destination destination
   ) {
     Flight flight = new Flight(
       departureHour,
       arrivalHour,
-      availableTotal,
       spotsNumber,
       price,
       airplane,
       destination
     );
 
+    flight.setId(UUID.randomUUID().toString());
+
     List<Flight> flights = FlightController.getFromDB();
 
     flights.add(flight);
 
     SerializableManager.saveObject(Flight.class.getName(), flights);
+    return flight;
   }
 
   public static Employee getFromDB(Employee employee) {
-    String filename = employee.getName();
+    String filename = employee.getName() + Constants.EXTENSION_FILES;
 
     try {
       FileInputStream fileStream = new FileInputStream(filename);

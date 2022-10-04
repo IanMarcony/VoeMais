@@ -2,9 +2,8 @@ package com.uea.voemais.client.model;
 
 import com.uea.voemais.shared.ticketflight.model.TicketFlight;
 import com.uea.voemais.shared.user.model.User;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client extends User implements Serializable {
@@ -13,10 +12,13 @@ public class Client extends User implements Serializable {
   private String gender;
   private List<TicketFlight> ticketFlights;
 
-  public Client() {}
+  public Client() {
+    this.ticketFlights = new ArrayList<>();
+  }
 
   public Client(String identityNumber, String gender) {
     this.identityNumber = identityNumber;
+    this.ticketFlights = new ArrayList<>();
     this.gender = gender;
   }
 
@@ -29,6 +31,7 @@ public class Client extends User implements Serializable {
   ) {
     super(name, password, email);
     this.identityNumber = identityNumber;
+    this.ticketFlights = new ArrayList<>();
     this.gender = gender;
   }
 
@@ -54,5 +57,18 @@ public class Client extends User implements Serializable {
 
   public void setTicketFlights(List<TicketFlight> ticketFlights) {
     this.ticketFlights = ticketFlights;
+  }
+
+  @Override
+  public String toString() {
+    return (
+      "Client [identityNumber=" +
+      identityNumber +
+      ", gender=" +
+      gender +
+      ", ticketFlights=" +
+      ticketFlights +
+      "]"
+    );
   }
 }
