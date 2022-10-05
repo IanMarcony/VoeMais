@@ -1,5 +1,5 @@
 package com.uea.voemais;
-import com.uea.voemais.admin.view.InitialMenuAdminFrame;
+import com.uea.voemais.client.view.InitialMenuClientFrame;
 
 import java.util.ArrayList;
 import com.uea.voemais.shared.model.Flight;
@@ -12,7 +12,7 @@ public class ProjectVoeMais {
     
     
     public static void main(String[] args) {
-        InitialMenuAdminFrame menu = new InitialMenuAdminFrame();
+        InitialMenuClientFrame menu = new InitialMenuClientFrame();
         
         menu.pack();
         menu.show();

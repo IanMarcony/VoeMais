@@ -117,6 +117,11 @@ public class ClientDataFrame extends javax.swing.JFrame {
 
         buttonGroup1.add(idaEVolta);
         idaEVolta.setText("Ida e volta");
+        idaEVolta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idaEVoltaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -239,6 +244,10 @@ public class ClientDataFrame extends javax.swing.JFrame {
     private void somenteIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somenteIdaActionPerformed
        dataDeChegada.setVisible(false);
     }//GEN-LAST:event_somenteIdaActionPerformed
+
+    private void idaEVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idaEVoltaActionPerformed
+        dataDeChegada.setVisible(true);
+    }//GEN-LAST:event_idaEVoltaActionPerformed
    
     /**
      * @param args the command line arguments
