@@ -1,16 +1,13 @@
 package com.uea.voemais.admin.model;
 
-import com.uea.voemais.shared.model.Flight;
-import com.uea.voemais.shared.model.User;
-import java.util.ArrayList;
+import com.uea.voemais.shared.user.model.User;
+import java.io.Serializable;
 
-public class Employee extends User{
-    public ArrayList<Flight> flights = new ArrayList<>();
-    public Employee() {
-    }
+public class Employee extends User implements Serializable {
 
-    public Employee(String name, String password, String email) {
-        super(name, password, email);
-    }
-  
+  public Employee() {}
+
+  public Employee(String name, String password, String email) {
+    super(name, password, email);
+  }
 }

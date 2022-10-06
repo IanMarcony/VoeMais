@@ -15,10 +15,13 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.DefaultListModel;
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import javax.swing.JSeparator;
-import com.uea.voemais.shared.model.Flight;
+
+import com.uea.voemais.shared.flight.controller.FlightController;
+import com.uea.voemais.shared.flight.model.Flight;
 import com.uea.voemais.admin.model.Employee;
 
 
@@ -32,14 +35,17 @@ public class MostrarVoosFrame extends javax.swing.JFrame {
         
         initComponents();
         
-        for(Flight i : this.employee.flights){
-            this.modelo.addElement(i.show());
+        List<Flight> flights = FlightController.getFromDB();
+
+        for(Flight i : flights){
+            String element = "Id: "+i.getId()+"\tPreço:"+i.getPrice()+"\tParadas: "+i.getSpotsNumber()+"\tHora de partida"+i.getDepartureHour().toString()+"\tHora de chegada"+i.getArrivalHour().toString();
+            this.modelo.addElement(element);
         }
         jList1.setModel(this.modelo);
       
         
        int index = jList1.getSelectedIndex();
-        Flight voo = this.employee.flights.get(index);
+        Flight voo = flights.get(index);
         
         
         
