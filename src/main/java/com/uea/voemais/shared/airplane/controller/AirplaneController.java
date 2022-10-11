@@ -20,7 +20,6 @@ public class AirplaneController {
       airplanes = (List<Airplane>) objectStream.readObject();
       objectStream.close();
     } catch (Exception ex) {
-      ex.printStackTrace();
     } finally {
       return airplanes;
     }
