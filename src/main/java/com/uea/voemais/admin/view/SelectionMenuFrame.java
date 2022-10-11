@@ -4,7 +4,7 @@
  */
 package com.uea.voemais.admin.view;
 
-import com.uea.voemais.client.view.InitialMenuClientFrame;
+import com.uea.voemais.InitialSignInFrame;
 import com.uea.voemais.shared.airplane.controller.AirplaneController;
 import com.uea.voemais.shared.airplane.model.Airplane;
 import com.uea.voemais.shared.destination.controller.DestinationController;
@@ -155,7 +155,7 @@ public class SelectionMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_indexFlightsButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-      InitialMenuClientFrame dados = new InitialMenuClientFrame();
+      InitialSignInFrame dados = new InitialSignInFrame();
        dados.pack();
         dados.show();
         this.dispose();

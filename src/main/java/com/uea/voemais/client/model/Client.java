@@ -12,14 +12,18 @@ public class Client extends User implements Serializable {
   private String gender;
   private List<TicketFlight> ticketFlights;
 
+  public static Client client;
+
   public Client() {
-    this.ticketFlights = new ArrayList<>();
+    this.ticketFlights = new ArrayList<>(); 
   }
 
   public Client(String identityNumber, String gender) {
     this.identityNumber = identityNumber;
     this.ticketFlights = new ArrayList<>();
     this.gender = gender;
+
+    this.client = this;
   }
 
   public Client(
