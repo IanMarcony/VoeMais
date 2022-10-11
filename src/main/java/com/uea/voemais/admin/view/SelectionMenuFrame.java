@@ -4,6 +4,14 @@
  */
 package com.uea.voemais.admin.view;
 
+import com.uea.voemais.client.view.InitialMenuClientFrame;
+import com.uea.voemais.shared.airplane.controller.AirplaneController;
+import com.uea.voemais.shared.airplane.model.Airplane;
+import com.uea.voemais.shared.destination.controller.DestinationController;
+import com.uea.voemais.shared.destination.model.Destination;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author eduar
@@ -26,73 +34,167 @@ public class SelectionMenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        logoutButton = new javax.swing.JButton();
+        indexFlightsButton = new javax.swing.JButton();
+        createNewFlightButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        createAirplaneButton = new javax.swing.JButton();
+        createNewDestinationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 153, 255));
+        setPreferredSize(new java.awt.Dimension(800, 400));
 
-        jButton1.setText("Cadastrar novo avião");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+
+        logoutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        logoutButton.setText("SAIR");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Visualizar voos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        indexFlightsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        indexFlightsButton.setText("Visualizar voos");
+        indexFlightsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                indexFlightsButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Criar novos voos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        createNewFlightButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        createNewFlightButton.setText("Criar novos voos");
+        createNewFlightButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                createNewFlightButtonActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Central do Funcionário");
+        jLabel1.setToolTipText("");
+
+        createAirplaneButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        createAirplaneButton.setText("Cadastrar novo avião");
+        createAirplaneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAirplaneButtonActionPerformed(evt);
+            }
+        });
+
+        createNewDestinationButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        createNewDestinationButton.setText("Criar novo destino");
+        createNewDestinationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createNewDestinationButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(createAirplaneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(indexFlightsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(createNewFlightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(createNewDestinationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(indexFlightsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createAirplaneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createNewFlightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createNewDestinationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(103, 103, 103))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void indexFlightsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexFlightsButtonActionPerformed
+        FlightVisualizationFrame dados =  new FlightVisualizationFrame();
+        dados.pack();
+        dados.show();
+        this.dispose();
+    }//GEN-LAST:event_indexFlightsButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+      InitialMenuClientFrame dados = new InitialMenuClientFrame();
+       dados.pack();
+        dados.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void createNewFlightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewFlightButtonActionPerformed
+         List<Airplane> airplaneList = AirplaneController.getFromDB();
+        
+        if(airplaneList.isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Não tem aviões cadastrados");
+            
+           return;
+       
+        }
+        
+        List<Destination> destinationList = DestinationController.getFromDB();
+         if(destinationList.isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Não tem destinos cadastrados");
+           return;
+        }
         FlightRegisterFrame FlightRegisteringFrame = new FlightRegisterFrame();
         FlightRegisteringFrame.pack();
         FlightRegisteringFrame.show();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_createNewFlightButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void createAirplaneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAirplaneButtonActionPerformed
+        CreateNewAirplaneFrame dados = new CreateNewAirplaneFrame();
+        dados.pack();
+        dados.show();
+        this.dispose();
+    }//GEN-LAST:event_createAirplaneButtonActionPerformed
+
+    private void createNewDestinationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewDestinationButtonActionPerformed
+        CreateNewDestinationFrame dados = new CreateNewDestinationFrame();
+        dados.pack();
+        dados.show();
+        this.dispose();
+    }//GEN-LAST:event_createNewDestinationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,8 +232,12 @@ public class SelectionMenuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton createAirplaneButton;
+    private javax.swing.JButton createNewDestinationButton;
+    private javax.swing.JButton createNewFlightButton;
+    private javax.swing.JButton indexFlightsButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton logoutButton;
     // End of variables declaration//GEN-END:variables
 }

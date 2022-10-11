@@ -17,18 +17,8 @@ import java.util.UUID;
 
 public class EmployeeController {
 
-  public static Destination createDestination(
-    String startAirport,
-    String finishAirport,
-    String startFlight,
-    String finishFlight
-  ) {
-    Destination destination = new Destination(
-      startAirport,
-      finishAirport,
-      startFlight,
-      finishFlight
-    );
+  public static Destination createDestination(String nameCity) {
+    Destination destination = new Destination(nameCity);
 
     List<Destination> destinations = DestinationController.getFromDB();
 
@@ -92,7 +82,6 @@ public class EmployeeController {
 
       return employeeDB;
     } catch (Exception ex) {
-      ex.printStackTrace();
       return null;
     }
   }

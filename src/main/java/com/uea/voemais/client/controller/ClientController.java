@@ -78,7 +78,6 @@ public class ClientController {
 
       return client;
     } catch (Exception ex) {
-      ex.printStackTrace();
       return null;
     }
   }

@@ -20,7 +20,6 @@ public class DestinationController {
       destinations = (List<Destination>) objectStream.readObject();
       objectStream.close();
     } catch (Exception ex) {
-      ex.printStackTrace();
     } finally {
       return destinations;
     }
