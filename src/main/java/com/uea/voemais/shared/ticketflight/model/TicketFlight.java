@@ -72,6 +72,6 @@ public class TicketFlight implements Serializable {
 
   @Override
   public String toString() {
-    return "TicketFlight [id=" + id + ", price=" + price + "]";
+    return "Id=" + id + ", Price=" + price ;
   }
 }

@@ -25,24 +25,9 @@ public class MainTest {
     EmployeeController.createAirplane("MAP", "wqe", 123);
     EmployeeController.createAirplane("GOL", "wqew", 123);
 
-    EmployeeController.createDestination(
-      "Manaus",
-      "Fortaleza",
-      "12/13/22",
-      "15/13/22"
-    );
-    EmployeeController.createDestination(
-      "Fortaleza",
-      "Manaus",
-      "20/13/22",
-      "26/13/22"
-    );
-    EmployeeController.createDestination(
-      "Orlando-EUA",
-      "Fortaleza",
-      "12/13/22",
-      "15/13/22"
-    );
+    EmployeeController.createDestination("Manaus");
+    EmployeeController.createDestination("Fortaleza");
+    EmployeeController.createDestination("Orlando-EUA");
 
     List<Airplane> airplanes = AirplaneController.getFromDB();
 
@@ -57,9 +42,9 @@ public class MainTest {
     for (Destination destination : destinations) {
       System.out.println(
         "Destino\tIda: " +
-        destination.getStartAirport() +
+        destination.getNameCity() +
         "\tVolta: " +
-        destination.getFinishAirport()
+        destination.getNameCity()
       );
     }
 
@@ -87,9 +72,9 @@ public class MainTest {
     for (Flight flight : flights) {
       System.out.println(
         "Voo\tIda: " +
-        flight.getDestination().getStartAirport() +
+        flight.getDestination().getNameCity() +
         "\tVolta: " +
-        flight.getDestination().getFinishAirport() +
+        flight.getDestination().getNameCity() +
         "\tPreço: " +
         flight.getPrice() +
         "\tID: " +
