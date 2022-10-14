@@ -5,6 +5,7 @@
 package com.uea.voemais.admin.view;
 
 import com.uea.voemais.admin.controller.EmployeeController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -140,6 +141,9 @@ public class CreateNewDestinationFrame extends javax.swing.JFrame {
             dados.pack();
             dados.show();
             this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Preencha o destino");
+            
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed

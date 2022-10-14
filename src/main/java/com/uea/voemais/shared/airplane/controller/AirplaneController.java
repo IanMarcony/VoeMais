@@ -19,8 +19,7 @@ public class AirplaneController {
 
       airplanes = (List<Airplane>) objectStream.readObject();
       objectStream.close();
-    } catch (Exception ex) {
-    } finally {
+    } catch (Exception ex) {} finally {
       return airplanes;
     }
   }

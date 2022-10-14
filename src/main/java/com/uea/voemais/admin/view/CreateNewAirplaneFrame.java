@@ -7,8 +7,8 @@ package com.uea.voemais.admin.view;
 import com.uea.voemais.database.controller.SerializableManager;
 import com.uea.voemais.shared.airplane.controller.AirplaneController;
 import com.uea.voemais.shared.airplane.model.Airplane;
-import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -170,8 +170,14 @@ public class CreateNewAirplaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_companyNameTextFieldActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-       String companyName = this.companyNameTextField.getText();
+       String companyName = this.companyNameTextField.getText();       
        String nameAirplane = this.nameAirplaneTextField.getText();
+     
+       if(nameAirplane.isEmpty()|| companyName.isEmpty()){
+           JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!");
+            
+           return;
+       }
        int countSeat = this.countSeatSlider.getValue();
        Airplane airplane = new Airplane(companyName, nameAirplane, countSeat);
        

@@ -19,8 +19,7 @@ public class DestinationController {
 
       destinations = (List<Destination>) objectStream.readObject();
       objectStream.close();
-    } catch (Exception ex) {
-    } finally {
+    } catch (Exception ex) {} finally {
       return destinations;
     }
   }

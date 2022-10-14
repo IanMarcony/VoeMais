@@ -149,7 +149,7 @@ public class InitialSignInFrame extends javax.swing.JFrame {
     private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
         String email = this.emailTextField.getText();
         String password =  new String(this.passwordTextField.getPassword());
-        if(!email.contains("@")){
+        if(!email.contains("@")&&!email.equals("admin")){
             JOptionPane.showMessageDialog(rootPane, "Digite um email válido!");
                 return;
         }
@@ -182,9 +182,10 @@ public class InitialSignInFrame extends javax.swing.JFrame {
             
             if(clientAlreadyExists==null){
                 SerializableManager.saveObject(client.getName(), client);
+                clientAlreadyExists = client;
             }         
             
-            Client.client = clientAlreadyExists;
+            Client.setInstance(clientAlreadyExists); 
             
             
             ClientMenuJFrame dados = new ClientMenuJFrame();

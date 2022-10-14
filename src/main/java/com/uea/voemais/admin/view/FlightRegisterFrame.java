@@ -272,6 +272,11 @@ public class FlightRegisterFrame extends javax.swing.JFrame {
             
             float price =  Float.parseFloat(this.priceTextField.getText());
             
+            if(price<=20.0f){
+                 JOptionPane.showMessageDialog(rootPane, "Digite um preço mais ou igual a R$20.0");
+                return;
+            }
+            
             List<Airplane> airplaneList = AirplaneController.getFromDB();
             List<Destination> destinationList = DestinationController.getFromDB();
             
