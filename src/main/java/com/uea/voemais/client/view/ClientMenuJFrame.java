@@ -4,6 +4,7 @@
  */
 package com.uea.voemais.client.view;
 
+import com.uea.voemais.InitialSignInFrame;
 import com.uea.voemais.client.model.Client;
 
 /**
@@ -17,7 +18,7 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
      */
     public ClientMenuJFrame() {
         initComponents();
-        greetingLabel.setText(greetingLabel.getText()+Client.client.getName());
+        greetingLabel.setText(greetingLabel.getText()+Client.getInstance().getName());
     }
 
     /**
@@ -34,6 +35,7 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         indexTicketsButton = new javax.swing.JButton();
         buyTicketButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,20 +65,34 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
             }
         });
 
+        logoutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        logoutButton.setText("SAIR");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(greetingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(buyTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(indexTicketsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(174, 174, 174))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(greetingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 143, Short.MAX_VALUE)
+                        .addComponent(buyTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)
+                        .addComponent(indexTicketsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(174, 174, 174))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(272, 272, 272)
@@ -92,7 +108,9 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(indexTicketsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(131, 131, 131))
+                .addGap(32, 32, 32)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(26, 26, 26)
@@ -129,6 +147,13 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
             dados.show();
             this.dispose();
     }//GEN-LAST:event_indexTicketsButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        InitialSignInFrame dados = new InitialSignInFrame();
+        dados.pack();
+        dados.show();
+        this.dispose();
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,5 +196,6 @@ public class ClientMenuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton indexTicketsButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton logoutButton;
     // End of variables declaration//GEN-END:variables
 }

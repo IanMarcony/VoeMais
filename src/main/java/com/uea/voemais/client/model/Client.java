@@ -12,18 +12,16 @@ public class Client extends User implements Serializable {
   private String gender;
   private List<TicketFlight> ticketFlights;
 
-  public static Client client;
+  private static Client client;
 
   public Client() {
-    this.ticketFlights = new ArrayList<>(); 
+    this.ticketFlights = new ArrayList<>();
   }
 
   public Client(String identityNumber, String gender) {
     this.identityNumber = identityNumber;
     this.ticketFlights = new ArrayList<>();
     this.gender = gender;
-
-    this.client = this;
   }
 
   public Client(
@@ -37,6 +35,21 @@ public class Client extends User implements Serializable {
     this.identityNumber = identityNumber;
     this.ticketFlights = new ArrayList<>();
     this.gender = gender;
+  }
+
+  public Client(String identityNumber, String gender, String name) {
+    super(name);
+    this.identityNumber = identityNumber;
+    this.ticketFlights = new ArrayList<>();
+    this.gender = gender;
+  }
+
+  public static void setInstance(Client clientA) {
+    client = clientA;
+  }
+
+  public static Client getInstance() {
+    return client;
   }
 
   public String getIdentityNumber() {

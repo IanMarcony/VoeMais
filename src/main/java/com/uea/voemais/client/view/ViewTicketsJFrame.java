@@ -6,8 +6,6 @@ package com.uea.voemais.client.view;
 
 import com.uea.voemais.client.controller.ClientController;
 import com.uea.voemais.client.model.Client;
-import com.uea.voemais.shared.flight.controller.FlightController;
-import com.uea.voemais.shared.flight.model.Flight;
 import com.uea.voemais.shared.ticketflight.model.TicketFlight;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -24,7 +22,7 @@ public class ViewTicketsJFrame extends javax.swing.JFrame {
     public ViewTicketsJFrame() {
         initComponents();
          DefaultTableModel listModel = (DefaultTableModel) this.ticketTable.getModel();
-        List<TicketFlight> ticketFlightList = ClientController.getFromDB(Client.client).getTicketFlights();
+        List<TicketFlight> ticketFlightList = ClientController.getFromDB(Client.getInstance()).getTicketFlights();
     for (TicketFlight ticketFlight : ticketFlightList) {
       String message = ticketFlight.toString();                     
       listModel.addRow(new Object[] { message });
@@ -120,14 +118,14 @@ public class ViewTicketsJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(269, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 

@@ -3,6 +3,7 @@ package com.uea.voemais.shared.flight.model;
 import com.uea.voemais.shared.airplane.model.Airplane;
 import com.uea.voemais.shared.destination.model.Destination;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Flight implements Serializable {
@@ -87,5 +88,19 @@ public class Flight implements Serializable {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  @Override
+  public String toString() {
+//    SimpleDateFormat sDateFormat = new SimpleDateFormat("HH:mm");
+//    String departure = sDateFormat.format(departureHour);
+//    String arrival = sDateFormat.format(arrivalHour);
+
+    return (
+      "Destino=" +
+      destination.getNameCity() +
+      "\nPreço=" +
+      price
+    );
   }
 }

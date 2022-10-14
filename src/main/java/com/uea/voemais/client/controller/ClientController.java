@@ -15,12 +15,14 @@ import java.util.UUID;
 
 public class ClientController {
 
-  public static void buyTicketFlight(
+  public static TicketFlight buyTicketFlight(
     List<Flight> flights,
     List<Passenger> passengers,
     Client client
   ) {
-    float priceTotal = flights.get(0).getPrice() + flights.get(1).getPrice();
+    float priceTotal = flights.size() == 1
+      ? flights.get(0).getPrice()
+      : flights.get(0).getPrice() + flights.get(1).getPrice();
 
     List<Flight> flightsFromDB = FlightController.getFromDB();
     List<Flight> flightsAux = flightsFromDB;
@@ -36,7 +38,10 @@ public class ClientController {
     SerializableManager.saveObject(Flight.class.getName(), flightsAux);
 
     for (Passenger passenger : passengers) {
-      if (passenger.getAgeGroup().equals("Criança")) {
+      if (
+        passenger.getAgeGroup().equals("Criança") ||
+        passenger.getAgeGroup().equals("Idoso")
+      ) {
         priceTotal += priceTotal * 0.2;
       }
       if (passenger.getAgeGroup().equals("Adulto")) {
@@ -51,9 +56,10 @@ public class ClientController {
       passengers,
       flights
     );
-    System.out.println(ticketFlight.getId());
     client.getTicketFlights().add(ticketFlight);
     SerializableManager.saveObject(client.getName(), client);
+
+    return ticketFlight;
   }
 
   public static Airplane selectSeat(int numberSeat, Airplane airplane) {

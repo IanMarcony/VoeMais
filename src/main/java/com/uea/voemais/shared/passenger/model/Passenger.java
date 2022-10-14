@@ -22,6 +22,16 @@ public class Passenger extends Client implements Serializable {
     String ageGroup,
     String identityNumber,
     String gender,
+    String name
+  ) {
+    super(identityNumber, gender, name);
+    this.ageGroup = ageGroup;
+  }
+
+  public Passenger(
+    String ageGroup,
+    String identityNumber,
+    String gender,
     String name,
     String password,
     String email
